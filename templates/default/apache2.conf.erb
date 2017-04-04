@@ -73,7 +73,11 @@ Group <%= node['apache']['group'] %>
 </Directory>
 
 <Directory <%= node['apache']['docroot_dir'] %>>
-        Options Indexes FollowSymLinks
+        <% if node['apache']['indexes'] == true -%>
+        Options +Indexes +FollowSymLinks
+        <% elsif node['apache']['indexes'] == false -%>
+        Options -Indexes +FollowSymLinks
+        <% end -%>
         AllowOverride None
         Require all granted
 </Directory>

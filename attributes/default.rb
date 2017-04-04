@@ -284,6 +284,9 @@ default['apache']['servertokens']    = 'Prod'
 default['apache']['serversignature'] = 'On'
 default['apache']['traceenable']     = 'Off'
 
+# Indexes
+default['apache']['indexes'] = true
+
 # mod_status Allow list, space seprated list of allowed entries.
 default['apache']['status_allow_list'] = '127.0.0.1 ::1'
 
