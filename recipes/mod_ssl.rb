@@ -30,6 +30,7 @@ if platform_family?('rhel', 'fedora', 'suse')
 
   file "#{node['apache']['dir']}/conf.d/ssl.conf" do
     content '# SSL Conf is under mods-available/ssl.conf - apache2 cookbook\n'
+    not_if { !File.exist?("#{node['apache']['dir']}/conf.d/ssl.conf") }
   end
 end
 
